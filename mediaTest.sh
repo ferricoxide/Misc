@@ -1,4 +1,16 @@
 #!/bin/sh
+#
+# Note: This script is intended to be run on an EL6-based Linux 
+#       system. In order for this script to work, the following
+#       RPMs must be present:
+#
+#       * dosfstools
+#       * genisoimage
+#       * udftools
+#       * ntfs-3g (optional: for future functionality)
+#
+################################################################
+
 
 IMGROOT="/var/tmp/FSimage"
 MNTROOT="/mnt/testing"

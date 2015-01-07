@@ -24,7 +24,7 @@ else
    echo "Creating ${IMGROOT}.msdos"
    ${DDCMD} of=${IMGROOT}.msdos && echo "File-create succeeded"
    losetup /dev/loop0 ${IMGROOT}.msdos && echo "Loop setup succeeded"
-   mkfs -t msdos /dev/loop0 && echo "Filesystem created"
+   mkfs -t msdos -F 12 /dev/loop0 && echo "Filesystem created"
 fi
 mount -t msdos /dev/loop0 ${MNTROOT}/msdos
 
@@ -36,7 +36,7 @@ else
    echo "Creating ${IMGROOT}.vfat"
    ${DDCMD} of=${IMGROOT}.vfat && echo "File-create succeeded"
    losetup /dev/loop1 ${IMGROOT}.vfat && echo "Loop setup succeeded"
-   mkfs -t vfat /dev/loop1 && echo "Filesystem created"
+   mkfs -t vfat -F 32 /dev/loop1 && echo "Filesystem created"
 fi
 mount -t vfat /dev/loop1 ${MNTROOT}/vfat
 

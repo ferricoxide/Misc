@@ -32,7 +32,7 @@ cat > ${UPDATEFILE} << EOF
   "Comment": "Update CNAME for this host",
   "Changes": [
     {
-      "Action": "CREATE",
+      "Action": "UPSERT",
       "ResourceRecordSet": {
         "Name": "${PREFEREDNAME}",
         "Type": "CNAME",
@@ -47,6 +47,9 @@ cat > ${UPDATEFILE} << EOF
   ]
 }
 EOF
+
+# Log what we're gonna do
+logger -p kern.info -t "rte53update" "Requesting CNAME mapping of ${PREFEREDNAME} to ${PUBLICHOSTNAME}"
 
 # Request creation/update
 aws --region ${INSTANCEREGION} route53 change-resource-record-sets \

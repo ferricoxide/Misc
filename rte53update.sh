@@ -4,6 +4,14 @@
 #    Route53 DNS record. This script will only set a CNAME
 #    pointing to the AWS-allocated public-hostname value
 #
+# Dependencies:
+#    It is recommended to set up a Route53 security-policy and
+#    and assign it to a role. The role should have the following
+#    Route53 Permissions set:
+#         route53:ChangeResourceRecordSets
+#         route53:GetHostedZone
+#         route53:ListResourceRecordSets
+#
 #################################################################
 
 ## Dynamic variables

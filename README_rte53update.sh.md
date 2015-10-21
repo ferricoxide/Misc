@@ -44,6 +44,6 @@ This role can then be assigned to an instance or to a service account. If using 
 
 The FQDN that will be placed into Route53 comes from the value set in the script's `PREFEREDNAME` variable.
 
-Set the value of `R53ZONEID` to the Route53 zone ID of the DNS zone to be updated. It's expected that this script will only be used for updating public DNS zones. The logic around zone updates may be updated if requests for such an enhancement are submitted via the git service's "issues" system.
+Set the value of `R53ZONEID` to the Route53 zone ID of the DNS zone to be updated. It's expected that this script will only be used for updating public DNS zones. The logic around zone updates may be updated if requests for such an enhancement are submitted via the git service's "[issues](https://github.com/ferricoxide/Misc/issues/new)" system.
 
 Assuming that the instance-role or service-account has adequate permissions, a DNS CNAME record with a 60-second time to live will be created in the target zone. The update-action will be logged to STDOUT and copied to the host systems logging-service. Events in the system log will be tagged `rte53update`.

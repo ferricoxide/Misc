@@ -1,3 +1,4 @@
+# rte53update.sh
 This script is used to automate the updating of the calling instance's Route53 DNS record. As written, this script will only set a CNAME pointing to the AWS-allocated public-hostname value.
 
 Dependencies:

@@ -8,6 +8,38 @@ It is recommended to set up a Route53 security-policy and and assign it to a rol
 - route53:GetHostedZone
 - route53:ListResourceRecordSets
 
+The resulting AWS IAM policy-document should resemble:
+
+~~~
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "StmtNNNNNNNNNNNNN",
+            "Effect": "Allow",
+            "Action": [
+                "route53:ChangeResourceRecordSets",
+                "route53:GetHostedZone",
+                "route53:ListResourceRecordSets"
+            ],
+            "Resource": [
+                "arn:aws:route53:::hostedzone/IDIDIDIDIDIDID"
+            ]
+        },
+        {
+            "Sid": "StmtNNNNNNNNNNNNN",
+            "Effect": "Allow",
+            "Action": [
+                "route53:ListHostedZones"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
+~~~
+
 This role can then be assigned to an instance or to a service account. If using a service account, it will be necessary to populate the script's `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` variables with the IAM user's associated ID/Key values.
 
 The FQDN that will be placed into Route53 comes from the value set in the script's `PREFEREDNAME` variable.

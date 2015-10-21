@@ -13,6 +13,8 @@
 #         route53:ListResourceRecordSets
 #
 #################################################################
+export AWS_ACCESS_KEY_ID=<KEY_ID>
+export AWS_SECRET_ACCESS_KEY=<KEY_STRING>
 
 ## Dynamic variables
 METADATAURL="http://169.254.169.254/latest"
